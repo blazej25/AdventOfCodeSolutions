@@ -1,12 +1,20 @@
 package Application;
 
 import Solutions2024.Day1.Day1;
+import Solutions2024.Day2.Day2;
 import Solutions2024.Solution;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class AOCApplication {
+
+    public static List<Solution> solutions = List.of(
+            new Day1(),
+            new Day2()
+    );
 
     public static void run() {
         Scanner scanner = new Scanner(System.in);
@@ -37,14 +45,10 @@ public class AOCApplication {
     }
 
     private static void runSolution(int day, int part) {
-        switch (day) {
-            case 1:
-                Solution solution = new Day1();
-                if (part == 1) {
-                    solution.firstPart();
-                } else {
-                    solution.secondPart();
-                }
+        if (part == 1) {
+            solutions.get(day - 1).firstPart();
+        } else {
+            solutions.get(day - 1).secondPart();
         }
     }
 
